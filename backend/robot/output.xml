@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.11.1 on win32)" generated="2024-05-06T19:51:53.713964" rpa="false" schemaversion="5">
+<suite id="s1" name="Web Tables" source="c:\Users\Brahyan\Desktop\garantizarRobot\elements\Web_Tables.robot">
+<test id="s1-t1" name="AgregarRegistrosDesdeLista" line="10">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:51:54.221075" level="INFO">Opening browser 'Chrome' to base url 'https://demoqa.com/webtables'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-06T19:51:54.221075" elapsed="32.697654"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-05-06T19:52:26.920203" elapsed="0.103568"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-06T19:52:27.027802" level="INFO">${registros} = ['John Doe john.doe@example.com 30 50000 IT', 'Alice Smith alice.smith@example.com 25 60000 HR', 'Bob Johnson bob.johnson@example.com 35 70000 Finance', 'Emma Brown emma.brown@example.com 28 55000 Sal...</msg>
+<var>${registros}</var>
+<arg>John Doe john.doe@example.com 30 50000 IT</arg>
+<arg>Alice Smith alice.smith@example.com 25 60000 HR</arg>
+<arg>Bob Johnson bob.johnson@example.com 35 70000 Finance</arg>
+<arg>Emma Brown emma.brown@example.com 28 55000 Sales</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-06T19:52:27.026802" elapsed="0.002005"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:27.032613" level="INFO">Clicking element 'xpath://button[@id='addNewRecordButton']'.</msg>
+<arg>xpath://button[@id='addNewRecordButton']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:27.032613" elapsed="0.179501"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id:firstName</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-06T19:52:27.216139" elapsed="0.285883"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-06T19:52:27.508259" level="INFO">${datos} = ['John', 'Doe', 'john.doe@example.com', '30', '50000', 'IT']</msg>
+<var>${datos}</var>
+<arg>"${registro}".split()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-06T19:52:27.502022" elapsed="0.008263"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:27.511861" level="INFO">Typing text 'John' into text field 'id:firstName'.</msg>
+<arg>id:firstName</arg>
+<arg>${datos}[0]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:27.510346" elapsed="0.261647"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:27.774392" level="INFO">Typing text 'Doe' into text field 'id:lastName'.</msg>
+<arg>id:lastName</arg>
+<arg>${datos}[1]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:27.773819" elapsed="0.271590"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:28.047386" level="INFO">Typing text 'john.doe@example.com' into text field 'id:userEmail'.</msg>
+<arg>id:userEmail</arg>
+<arg>${datos}[2]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:28.046392" elapsed="0.336914"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:28.383306" level="INFO">Typing text '30' into text field 'id:age'.</msg>
+<arg>id:age</arg>
+<arg>${datos}[3]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:28.383306" elapsed="0.198837"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:28.582143" level="INFO">Typing text '50000' into text field 'id:salary'.</msg>
+<arg>id:salary</arg>
+<arg>${datos}[4]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:28.582143" elapsed="0.153919"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:28.739526" level="INFO">Typing text 'IT' into text field 'id:department'.</msg>
+<arg>id:department</arg>
+<arg>${datos}[5]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:28.738474" elapsed="0.137968"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:28.876442" level="INFO">Clicking element 'id:submit'.</msg>
+<arg>id:submit</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:28.876442" elapsed="0.089625"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://div[@class='action-buttons']//span[@title='Delete']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-06T19:52:28.967067" elapsed="0.042640"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:29.012281" level="INFO">Clicking element 'xpath://div[@class='action-buttons']//span[@title='Delete']'.</msg>
+<arg>xpath://div[@class='action-buttons']//span[@title='Delete']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:29.012281" elapsed="0.094586"/>
+</kw>
+<arg>'${registro}' == '${registros[0]}'</arg>
+<arg>Click Element</arg>
+<arg>xpath://div[@class='action-buttons']//span[@title='Delete']</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-06T19:52:29.009707" elapsed="0.097160"/>
+</kw>
+<var name="${registro}">John Doe john.doe@example.com 30 50000 IT</var>
+<status status="PASS" start="2024-05-06T19:52:27.032613" elapsed="2.075257"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:29.108746" level="INFO">Clicking element 'xpath://button[@id='addNewRecordButton']'.</msg>
+<arg>xpath://button[@id='addNewRecordButton']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:29.108746" elapsed="0.081691"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id:firstName</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-06T19:52:29.190437" elapsed="0.022243"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-06T19:52:29.212680" level="INFO">${datos} = ['Alice', 'Smith', 'alice.smith@example.com', '25', '60000', 'HR']</msg>
+<var>${datos}</var>
+<arg>"${registro}".split()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-06T19:52:29.212680" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:29.223013" level="INFO">Typing text 'Alice' into text field 'id:firstName'.</msg>
+<arg>id:firstName</arg>
+<arg>${datos}[0]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:29.221939" elapsed="0.165011"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:29.388506" level="INFO">Typing text 'Smith' into text field 'id:lastName'.</msg>
+<arg>id:lastName</arg>
+<arg>${datos}[1]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:29.386950" elapsed="0.187551"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:29.575502" level="INFO">Typing text 'alice.smith@example.com' into text field 'id:userEmail'.</msg>
+<arg>id:userEmail</arg>
+<arg>${datos}[2]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:29.575502" elapsed="0.226627"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:29.802129" level="INFO">Typing text '25' into text field 'id:age'.</msg>
+<arg>id:age</arg>
+<arg>${datos}[3]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:29.802129" elapsed="0.127828"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:29.931972" level="INFO">Typing text '60000' into text field 'id:salary'.</msg>
+<arg>id:salary</arg>
+<arg>${datos}[4]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:29.931972" elapsed="0.140506"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:30.074422" level="INFO">Typing text 'HR' into text field 'id:department'.</msg>
+<arg>id:department</arg>
+<arg>${datos}[5]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:30.073387" elapsed="0.138812"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:30.214245" level="INFO">Clicking element 'id:submit'.</msg>
+<arg>id:submit</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:30.212199" elapsed="0.078254"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://div[@class='action-buttons']//span[@title='Delete']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-06T19:52:30.290453" elapsed="0.024102"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${registro}' == '${registros[0]}'</arg>
+<arg>Click Element</arg>
+<arg>xpath://div[@class='action-buttons']//span[@title='Delete']</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-06T19:52:30.321956" elapsed="0.001106"/>
+</kw>
+<var name="${registro}">Alice Smith alice.smith@example.com 25 60000 HR</var>
+<status status="PASS" start="2024-05-06T19:52:29.107870" elapsed="1.219226"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:30.327096" level="INFO">Clicking element 'xpath://button[@id='addNewRecordButton']'.</msg>
+<arg>xpath://button[@id='addNewRecordButton']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:30.327096" elapsed="0.096714"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id:firstName</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-06T19:52:30.424823" elapsed="0.017264"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-06T19:52:30.452228" level="INFO">${datos} = ['Bob', 'Johnson', 'bob.johnson@example.com', '35', '70000', 'Finance']</msg>
+<var>${datos}</var>
+<arg>"${registro}".split()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-06T19:52:30.442087" elapsed="0.010141"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:30.452228" level="INFO">Typing text 'Bob' into text field 'id:firstName'.</msg>
+<arg>id:firstName</arg>
+<arg>${datos}[0]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:30.452228" elapsed="0.173106"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:30.625334" level="INFO">Typing text 'Johnson' into text field 'id:lastName'.</msg>
+<arg>id:lastName</arg>
+<arg>${datos}[1]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:30.625334" elapsed="0.208505"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:30.833839" level="INFO">Typing text 'bob.johnson@example.com' into text field 'id:userEmail'.</msg>
+<arg>id:userEmail</arg>
+<arg>${datos}[2]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:30.833839" elapsed="0.413003"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:31.251942" level="INFO">Typing text '35' into text field 'id:age'.</msg>
+<arg>id:age</arg>
+<arg>${datos}[3]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:31.246842" elapsed="0.185442"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:31.438496" level="INFO">Typing text '70000' into text field 'id:salary'.</msg>
+<arg>id:salary</arg>
+<arg>${datos}[4]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:31.437913" elapsed="0.217654"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:31.658592" level="INFO">Typing text 'Finance' into text field 'id:department'.</msg>
+<arg>id:department</arg>
+<arg>${datos}[5]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:31.656597" elapsed="0.221657"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:31.878254" level="INFO">Clicking element 'id:submit'.</msg>
+<arg>id:submit</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:31.878254" elapsed="0.141852"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://div[@class='action-buttons']//span[@title='Delete']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-06T19:52:32.022188" elapsed="0.054944"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${registro}' == '${registros[0]}'</arg>
+<arg>Click Element</arg>
+<arg>xpath://div[@class='action-buttons']//span[@title='Delete']</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-06T19:52:32.077132" elapsed="0.005153"/>
+</kw>
+<var name="${registro}">Bob Johnson bob.johnson@example.com 35 70000 Finance</var>
+<status status="PASS" start="2024-05-06T19:52:30.327096" elapsed="1.755189"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:32.082285" level="INFO">Clicking element 'xpath://button[@id='addNewRecordButton']'.</msg>
+<arg>xpath://button[@id='addNewRecordButton']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:32.082285" elapsed="0.154001"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id:firstName</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-06T19:52:32.236286" elapsed="0.036594"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-06T19:52:32.272880" level="INFO">${datos} = ['Emma', 'Brown', 'emma.brown@example.com', '28', '55000', 'Sales']</msg>
+<var>${datos}</var>
+<arg>"${registro}".split()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-06T19:52:32.272880" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:32.272880" level="INFO">Typing text 'Emma' into text field 'id:firstName'.</msg>
+<arg>id:firstName</arg>
+<arg>${datos}[0]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:32.272880" elapsed="0.224182"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:32.497062" level="INFO">Typing text 'Brown' into text field 'id:lastName'.</msg>
+<arg>id:lastName</arg>
+<arg>${datos}[1]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:32.497062" elapsed="0.220404"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:32.723281" level="INFO">Typing text 'emma.brown@example.com' into text field 'id:userEmail'.</msg>
+<arg>id:userEmail</arg>
+<arg>${datos}[2]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:32.722319" elapsed="0.316018"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:33.039307" level="INFO">Typing text '28' into text field 'id:age'.</msg>
+<arg>id:age</arg>
+<arg>${datos}[3]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:33.039307" elapsed="0.187822"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:33.227129" level="INFO">Typing text '55000' into text field 'id:salary'.</msg>
+<arg>id:salary</arg>
+<arg>${datos}[4]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:33.227129" elapsed="0.216307"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:33.444863" level="INFO">Typing text 'Sales' into text field 'id:department'.</msg>
+<arg>id:department</arg>
+<arg>${datos}[5]</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:33.444439" elapsed="0.247936"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:33.692375" level="INFO">Clicking element 'id:submit'.</msg>
+<arg>id:submit</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:33.692375" elapsed="0.221286"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>xpath://div[@class='action-buttons']//span[@title='Delete']</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-06T19:52:33.913661" elapsed="0.048800"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>'${registro}' == '${registros[0]}'</arg>
+<arg>Click Element</arg>
+<arg>xpath://div[@class='action-buttons']//span[@title='Delete']</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2024-05-06T19:52:33.962461" elapsed="0.000000"/>
+</kw>
+<var name="${registro}">Emma Brown emma.brown@example.com 28 55000 Sales</var>
+<status status="PASS" start="2024-05-06T19:52:32.082285" elapsed="1.880176"/>
+</iter>
+<var>${registro}</var>
+<value>@{registros}</value>
+<status status="PASS" start="2024-05-06T19:52:27.032613" elapsed="6.929848"/>
+</for>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-06T19:52:33.962461" level="INFO">Typing text 'John' into text field 'id:searchBox'.</msg>
+<arg>id:searchBox</arg>
+<arg>John</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-06T19:52:33.962461" elapsed="0.232838"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-05-06T19:52:44.195794" level="INFO">Slept 10 seconds.</msg>
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-05-06T19:52:34.195299" elapsed="10.000495"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-06T19:52:44.195794" elapsed="2.585075"/>
+</kw>
+<status status="PASS" start="2024-05-06T19:51:54.221075" elapsed="52.559794"/>
+</test>
+<status status="PASS" start="2024-05-06T19:51:53.728064" elapsed="53.054317"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Web Tables">Web Tables</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
